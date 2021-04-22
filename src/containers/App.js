@@ -32,10 +32,10 @@ class App extends React.Component {
 
     const proxyUrl = "https://cors-anywhere.herokuapp.com/"
     const url = `${proxyUrl}https://jsonplaceholder.typicode.com/users`;
-    const request = new Request(url);
+    //const request = new Request(url);
 
     //refactoring {} to oneliners //fetch is a method on the window obj
-    fetch(request)
+    fetch(url)
       .then(response => response.json())
       .then(users => this.setState({ robots: users }))
       .catch(e => console.log(e));
