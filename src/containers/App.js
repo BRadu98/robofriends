@@ -34,7 +34,7 @@ class App extends React.Component {
     //const url = `${proxyUrl}https://jsonplaceholder.typicode.com/users`;
     //const request = new Request(url);
 
-    const url = `/users`;
+    const url = `https://jsonplaceholder.typicode.com/users`;
     //refactoring {} to oneliners //fetch is a method on the window obj
     fetch(url)
       .then(response => response.json())
