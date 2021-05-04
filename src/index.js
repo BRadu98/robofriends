@@ -3,17 +3,32 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './containers/App'; //. same folder
 import reportWebVitals from './reportWebVitals';
-
+import { Provider, connect } from 'react-redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import 'tachyons';
+import { searchRobots, requestRobots } from './reducers';
+import { createLogger } from 'redux-logger';
+//to handle async in middleware
+import thunkMiddleware from 'redux-thunk';
+
+
+//middleware, to be aplied on reduxApp
+const logger = createLogger();
+
+//combine all reducers into a root reducer
+const rootReducer = combineReducers({ searchRobots, requestRobots})
+
+//STORE using reducer to create that obj tree of the state
+const store = createStore(rootReducer, 
+  applyMiddleware(thunkMiddleware,logger))
 
 ReactDOM.render(
   <React.StrictMode>
-    <App/>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
