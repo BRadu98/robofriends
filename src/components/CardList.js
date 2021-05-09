@@ -5,6 +5,7 @@ const CardList = ({ robots }) => {
     //without key, if some of those get deleted react won't know which one is which
     //and it needs to change the entire dom instead of just one card
     
+    console.log('CardList')
     return (
         <div>
             {robots.map((user, i) => {
