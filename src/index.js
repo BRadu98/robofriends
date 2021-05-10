@@ -11,6 +11,9 @@ import { createLogger } from 'redux-logger';
 //to handle async in middleware
 import thunkMiddleware from 'redux-thunk';
 
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+
+
 
 //middleware, to be aplied on reduxApp
 const logger = createLogger();
@@ -30,5 +33,8 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+//PWA
+serviceWorkerRegistration.register();
 
 reportWebVitals();
