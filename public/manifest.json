@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "old manifest",
+  "name": "using site.webmanifest instead",
   "icons": [
     {
       "src": "favicon.ico",
